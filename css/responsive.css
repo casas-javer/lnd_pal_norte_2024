@@ -1,0 +1,129 @@
+/* large screens */
+@media (min-width: 1600px)
+{
+
+}
+
+
+@media (max-width: 1500px)
+{
+    .lap-50
+    {
+        width: 50%;
+    }
+    .surveyForm, .thankyou
+    {
+        width: 40%;
+    }
+}
+
+
+/* Desktops/Laptops */
+@media (max-width: 1200px)
+{
+    .surveyForm, .thankyou
+    {
+        width: 50%;
+    }
+    .main_bg::after, .main_bg::before
+    {
+        width: 70%;
+    }
+    .mainheading
+    {
+        font-size: 35px;
+    }
+    .step_content p
+    {
+        font-size: 15px;
+    }
+    .thankyouContent h1
+    {
+        font-size: 70px;
+    }
+}
+
+/* Laptops */
+@media (max-width: 1024px)
+{
+
+}
+
+/* Tablets */
+@media (max-width: 768px)
+{
+    .surveyForm, .thankyou
+    {
+        width: 70%;
+    }
+    .main_bg::after, .main_bg::before
+    {
+        width: 95%;
+    }
+    .mainheading
+    {
+        font-size: 30px;
+    }
+}
+
+/* mobile */
+@media (max-width: 480px)
+{
+    .main_bg::after, .main_bg::before
+    {
+        width: 100%;
+    }
+    .mainheading
+    {
+        font-size: 18px;
+        height: 30px;
+    }
+    .step_content p
+    {
+        font-size: 12px;
+    }
+    .sm-100
+    {
+        width: 100%;
+    }
+    .radioField2
+    {
+        height: 65px;
+    }
+    .radioField2.checked input
+    {
+        margin: 0 5px;
+    }
+    .radioField2 label
+    
+    {
+        font-size: 12px;
+        margin-left: 15px;
+    }
+    .thankyou img
+    {
+        width: 100%;
+    }
+    .thankyouContent h1
+    {
+        font-size: 35px;
+    }
+    .thankyouContent p
+    {
+        font-size: 15px;
+    }
+    .subscribeField
+    {
+        flex-wrap: wrap;
+    }
+    .subscribeField,     .subscribeField button
+    {
+        height: 50px;
+    }
+    .subscribeField button
+    {
+        width: 100%;
+    }
+    
+
+}
