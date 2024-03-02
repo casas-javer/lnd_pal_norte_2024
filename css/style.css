@@ -177,6 +177,11 @@ input[type="text"] {
     }
 }
 
+@media (max-width: 767px) {
+    /* .main_bg::before{} */
+    .main_bg::after{ clip-path: unset;}
+}
+
 input[type="text"]:focus {
 
     box-shadow: 0 0 5px 1px rgba(0, 123, 255, 1); /* Add a subtle shadow */
@@ -431,7 +436,10 @@ input[type="text"]:focus {
     font-weight: bold; 
 }
 
-
+textarea#comentarios {
+    max-width: 100%;
+    width: 100%;
+}
 
 
 /* #error
