@@ -180,6 +180,9 @@ input[type="text"] {
 @media (max-width: 767px) {
     /* .main_bg::before{} */
     .main_bg::after{ clip-path: unset;}
+    .registra{
+        align-items: center;
+    }
 }
 
 input[type="text"]:focus {

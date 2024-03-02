@@ -64,6 +64,11 @@
     {
         font-size: 30px;
     }
+
+    h3.text-white {
+        font-size: 1.4rem;
+        margin: 0 5px;
+    }
 }
 
 /* mobile */
