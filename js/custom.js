@@ -236,7 +236,7 @@ $(document).ready(function() {
 
       // Expresión regular para validar letras, incluyendo acentos y la ñ
       const regex = /^[a-záéíóúñA-Z ]+$/i;
-      const regexInsta = /^(?!.*\.{2})^([a-z\d_]{1,30})$/i;
+      const regexInsta = /^(?!.*\.{2})^([a-zA-Z\d_]{1,30})$/i;
   
       // Valida si el nombre cumple con la expresión regular
       const valido = regex.test(nombrekey);
@@ -250,7 +250,7 @@ $(document).ready(function() {
 
       // Si el nombre no es válido, muestra un mensaje de error
       if (!validoInsta) {
-        instakey.val(instaval.replace(/[^a-z\d_]+/g, ''));
+        instakey.val(instaval.replace(/[^a-zA-Z\d_]+/g, ''));
       } 
 
 
