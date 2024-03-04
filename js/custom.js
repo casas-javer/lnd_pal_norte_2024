@@ -8,8 +8,6 @@ const instagram = $("#insta");
 const comentarios = $("#comentarios");
 const terminos = $("#terminos");
 
-
-
 // var nombreUsuarioInput = document.getElementById('insta');
 
 // nombreUsuarioInput.addEventListener('change', function() {
@@ -19,7 +17,6 @@ const terminos = $("#terminos");
 
 //   document.cookie = `instauser=${nombreUsuario}; 365`
 // });
-
 
 function next() {
   divs.eq(now).hide();
@@ -52,38 +49,32 @@ function radiovalidate(stepnumber) {
   checkedradio = checkradio.some(Boolean);
 }
 // check step0
-$("#step0btn").on("click", function () {
-    const longitud = nombre.val().length;
-    const longitudInsta = instagram.val().length;
+$("#step0btn").on("click", function (e) {
+  const longitud = nombre.val().length;
+  const longitudInsta = instagram.val().length;
 
-  
-    
+  let micookie = document.cookie
+  .split("; ")
+  .find((row) => row.startsWith("nombreUsuario="))
+  .split("=")[1];
 
-  
-if (document.cookie.split('; ').find(row => row.startsWith('nombreUsuario='))){
-  let micookie = document.cookie.split('; ').find(row => row.startsWith('nombreUsuario=')).split('=')[1];
-  let nombreUsuarioInput = document.getElementById('insta').value;
-console.log(micookie, nombreUsuarioInput)
+let nombreUsuarioInput = document.getElementById("insta").value;
+console.log(micookie, nombreUsuarioInput);
 
-  if (micookie === nombreUsuarioInput){
-
-    (function (el) {
-      setTimeout(function () {
-        el.children().remove(".reveal");
-      }, 3000);
-    })(
-      $("#error").append(
-        '<div class="reveal alert alert-danger">El usuario ya existe</div>'
-      )
-    );
-
-  }  else {
-    return
-  }
+     if (micookie === nombreUsuarioInput) {
+      (function (el) {
+        setTimeout(function () {
+          el.children().remove(".reveal");
+        }, 3000);
+      })(
+        $("#error").append(
+          '<div class="reveal alert alert-danger">El usuario ya existe</div>'
+        )
+      );
+    }
 
 
-} 
-else if (nombre.val() === "" || instagram.val() === "") {
+  else if (nombre.val() === "" || instagram.val() === "") {
     (function (el) {
       setTimeout(function () {
         el.children().remove(".reveal");
@@ -93,31 +84,27 @@ else if (nombre.val() === "" || instagram.val() === "") {
         '<div class="reveal alert alert-danger">Debes llenar todos los campos</div>'
       )
     );
-  } 
-  else if (longitud > 70 || longitud <= 3){
+  } else if (longitud > 70 || longitud <= 3) {
     (function (el) {
-        setTimeout(function () {
-          el.children().remove(".reveal");
-        }, 3000);
-      })(
-        $("#error").append(
-          '<div class="reveal alert alert-danger">El nombre no cumple la longitud mínima</div>'
-        )
-      );
-  }
-  else if (longitudInsta > 30 || longitudInsta <= 3){
+      setTimeout(function () {
+        el.children().remove(".reveal");
+      }, 3000);
+    })(
+      $("#error").append(
+        '<div class="reveal alert alert-danger">El nombre no cumple la longitud mínima</div>'
+      )
+    );
+  } else if (longitudInsta > 30 || longitudInsta <= 3) {
     (function (el) {
-        setTimeout(function () {
-          el.children().remove(".reveal");
-        }, 3000);
-      })(
-        $("#error").append(
-          '<div class="reveal alert alert-danger">El usuario no cumple con la longitud mínima</div>'
-        )
-      );
-  }
-  
-  else {
+      setTimeout(function () {
+        el.children().remove(".reveal");
+      }, 3000);
+    })(
+      $("#error").append(
+        '<div class="reveal alert alert-danger">El usuario no cumple con la longitud mínima</div>'
+      )
+    );
+  } else {
     next();
   }
 });
@@ -208,15 +195,14 @@ $("#step4btn").on("click", function () {
 
 // check last step
 $("#sub").on("click", function (e) {
+  // e.preventDefault();
 
-// e.preventDefault();
+  var nombreUsuario = document.getElementById("insta").value;
 
-var nombreUsuario = document.getElementById('insta').value;
-  
-// Establece la cookie con el nombre del usuario
-document.cookie = "nombreUsuario=" + nombreUsuario;
+  // Establece la cookie con el nombre del usuario
+  document.cookie = "nombreUsuario=" + nombreUsuario;
 
-  if (comentarios.val() === "" ) {
+  if (comentarios.val() === "") {
     (function (el) {
       setTimeout(function () {
         el.children().remove(".reveal");
@@ -226,8 +212,7 @@ document.cookie = "nombreUsuario=" + nombreUsuario;
         '<div class="reveal alert alert-danger">Cuéntanos tu historia</div>'
       )
     );
-  }  
-  else if (!terminos.is(":checked")) {
+  } else if (!terminos.is(":checked")) {
     (function (el) {
       setTimeout(function () {
         el.children().remove(".reveal");
@@ -237,8 +222,7 @@ document.cookie = "nombreUsuario=" + nombreUsuario;
         '<div class="reveal alert alert-danger">Debes aceptar terminos y condiciones</div>'
       )
     );
-  }  
-  else {
+  } else {
     $(".surveyForm").addClass("d-none");
     $(".loading").addClass("d-grid");
     setTimeout(function () {
@@ -252,69 +236,61 @@ document.cookie = "nombreUsuario=" + nombreUsuario;
   }
 });
 
-
 // EVITAR ESCIBIR si no es texto válido
 
-$(document).ready(function() {
-    // Selecciona el campo de texto
-    const nombrekey = $('#nombre');
-    const instakey = $('#insta');
-  
-    // Función para evitar que se escriban más de 100 caracteres
-    function limitarCaracteres() {
-      // Obtiene la longitud del valor del campo de texto
-      const longkey = nombrekey.val().length;
-      const longkeyinsta = instakey.val().length;
-  
-      // Si la longkey es mayor a 100, elimina los caracteres sobrantes
-      if (longkey > 70) {
-        nombrekey.val(nombrekey.val().substring(0, 70));
-      }
-      if (longkeyinsta > 30) {
-        instakey.val(instakey.val().substring(0, 30));
-      }
+$(document).ready(function () {
+  // Selecciona el campo de texto
+  const nombrekey = $("#nombre");
+  const instakey = $("#insta");
 
-//  VALIDACIÓN SOLO LETRAS
-  
-      // Obtiene el valor del campo de texto
-      const nombreval = nombre.val();
-      const instaval = instagram.val();
+  // Función para evitar que se escriban más de 100 caracteres
+  function limitarCaracteres() {
+    // Obtiene la longitud del valor del campo de texto
+    const longkey = nombrekey.val().length;
+    const longkeyinsta = instakey.val().length;
 
-      // Expresión regular para validar letras, incluyendo acentos y la ñ
-      const regex = /^[a-záéíóúñA-Z ]+$/i;
-      const regexInsta = /^(?!.*\.{2})^([a-zA-Z\d_]{1,30})$/i;
-  
-      // Valida si el nombre cumple con la expresión regular
-      const valido = regex.test(nombrekey);
-      const validoInsta = regexInsta.test(instakey);
-  
-      // Si el nombre no es válido, muestra un mensaje de error
-      if (!valido) {
-        nombrekey.val(nombreval.replace(/[^a-záéíóúñA-Z ]+/g, ''));
-      }
-
-
-      // Si el nombre no es válido, muestra un mensaje de error
-      if (!validoInsta) {
-        instakey.val(instaval.replace(/[^a-zA-Z\d_]+/g, ''));
-      } 
-
-
+    // Si la longkey es mayor a 100, elimina los caracteres sobrantes
+    if (longkey > 70) {
+      nombrekey.val(nombrekey.val().substring(0, 70));
     }
-  
-    // Limita los caracteres al escribir en el campo de texto
-    nombrekey.on('keyup', limitarCaracteres);
-    instakey.on('keyup', limitarCaracteres);
-  });
+    if (longkeyinsta > 30) {
+      instakey.val(instakey.val().substring(0, 30));
+    }
 
+    //  VALIDACIÓN SOLO LETRAS
 
+    // Obtiene el valor del campo de texto
+    const nombreval = nombre.val();
+    const instaval = instagram.val();
 
+    // Expresión regular para validar letras, incluyendo acentos y la ñ
+    const regex = /^[a-záéíóúñA-Z ]+$/i;
+    const regexInsta = /^(?!.*\.{2})^([a-zA-Z\d_]{1,30})$/i;
+
+    // Valida si el nombre cumple con la expresión regular
+    const valido = regex.test(nombrekey);
+    const validoInsta = regexInsta.test(instakey);
+
+    // Si el nombre no es válido, muestra un mensaje de error
+    if (!valido) {
+      nombrekey.val(nombreval.replace(/[^a-záéíóúñA-Z ]+/g, ""));
+    }
+
+    // Si el nombre no es válido, muestra un mensaje de error
+    if (!validoInsta) {
+      instakey.val(instaval.replace(/[^a-zA-Z\d_]+/g, ""));
+    }
+  }
+
+  // Limita los caracteres al escribir en el campo de texto
+  nombrekey.on("keyup", limitarCaracteres);
+  instakey.on("keyup", limitarCaracteres);
+});
 
 //   const regex = /^(?!.*\.{2})^([a-z\d_]{1,30})$/i;
 // nombrekey.val(nombreval.replace(/[^a-z\d_]+/g, ''));
 
-
 $('input[type="checkbox"]').css({
-    width: '20px',
-    height: '20px'
-  });
+  width: "20px",
+  height: "20px",
+});
