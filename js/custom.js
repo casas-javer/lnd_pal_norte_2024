@@ -168,8 +168,9 @@ $("#step4btn").on("click", function () {
 });
 
 // check last step
-$("#sub").on("click", function () {
+$("#sub").on("click", function (e) {
 
+// e.preventDefault();
 
   if (comentarios.val() === "" ) {
     (function (el) {
@@ -203,6 +204,7 @@ $("#sub").on("click", function () {
     }, 2000);
 
     $("#sub").html("done");
+    // $(this).unbind('submit').submit();
   }
 });
 

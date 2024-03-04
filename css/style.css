@@ -183,6 +183,11 @@ input[type="text"] {
     .registra{
         align-items: center;
     }
+
+    .surveyFormTerminos
+{
+    width: 100%;
+}
 }
 
 input[type="text"]:focus {
@@ -193,6 +198,7 @@ input[type="text"]:focus {
 .radiofield input
 {
     -webkit-appearance: none;
+    appearance: none;
     border-radius: 10px;
     background-color: rgb(234, 234, 234);
     min-width: 40px;
@@ -305,6 +311,7 @@ input[type="text"]:focus {
 .radioField2 input
 {
     -webkit-appearance: none;
+    appearance: none;
     border: 0;
     border-radius: 50%;
     background-color: rgb(255, 255, 255);

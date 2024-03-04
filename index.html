@@ -39,11 +39,11 @@
             <div class="logo">
                 <img style="max-width: 250px;" src="https://www.javer.com.mx/images/assets/1598485794_logo_javer_GOOD.png" alt="logo">
             </div>
-            <form method="post" class="show-section">
+            <form  class="show-section" name="submit-form">
 
                 <div id="error"></div>
                 
-                <section class="steps" style="">
+                <section class="steps" >
 
                     <!-- step 1 -->
                     <article class="step_content">
@@ -62,11 +62,11 @@
                                     <label class="formLabel ms-0 mb-1">
                                       Nombre Completo:
                                     </label> 
-                                    <input id="nombre" name="nombre"  class="rounded p-2 border border-0 mb-3" type="text" name="avgproduct">
+                                    <input id="nombre" name="nombre"  class="rounded p-2 border border-0 mb-3" type="text" >
                                     <label class="formLabel ms-0 mb-1">
                                         Usuario de Instagram:
                                       </label> 
-                                    <input id="insta" name="insta"  class="rounded p-2 border border-0" type="text" name="avgproduct">
+                                    <input id="insta" name="insta"  class="rounded p-2 border border-0" type="text" >
                                 </div>
                             </div>
                         </div>
@@ -93,7 +93,7 @@
                         <div class="row d-flex flex-column">
                             <div class="col-md-5 lap-50 sm-100">
                                 <div class="radiofield fadeLeft">
-                                    <input type="radio" name="avgproduct">
+                                    <input type="radio" id="2011" name="fst_year" value="2011">
                                     <label class="formLabel">
                                        2011
                                     </label>
@@ -101,7 +101,7 @@
                             </div>
                             <div class="col-md-5 lap-50 sm-100">
                                 <div class="radiofield fadeLeft delay-100ms">
-                                    <input type="radio" name="avgproduct">
+                                    <input type="radio" id="2012" name="fst_year" value="2012">
                                     <label class="formLabel">
                                         2012
                                     </label>
@@ -109,7 +109,7 @@
                             </div>
                             <div class="col-md-5 lap-50 sm-100">
                                 <div class="radiofield fadeLeft delay-200ms">
-                                    <input type="radio" name="avgproduct">
+                                    <input type="radio" id="2015" name="fst_year" value="2015">
                                     <label class="formLabel">
                                         2015
                                     </label>
@@ -139,7 +139,7 @@
                         <div class="row d-flex flex-column">
                             <div class="col-md-5 lap-50 sm-100">
                                 <div class="radiofield fadeLeft">
-                                    <input type="radio" name="avgproduct">
+                                    <input type="radio" id="11" name="editions" value="11">
                                     <label class="formLabel">
                                        11
                                     </label>
@@ -147,7 +147,7 @@
                             </div>
                             <div class="col-md-5 lap-50 sm-100">
                                 <div class="radiofield fadeLeft delay-100ms">
-                                    <input type="radio" name="avgproduct">
+                                    <input type="radio" id="14" name="editions" value="14">
                                     <label class="formLabel">
                                         14
                                     </label>
@@ -155,7 +155,7 @@
                             </div>
                             <div class="col-md-5 lap-50 sm-100">
                                 <div class="radiofield fadeLeft delay-200ms">
-                                    <input type="radio" name="avgproduct">
+                                    <input type="radio" id="12" name="editions" value="12">
                                     <label class="formLabel">
                                         12
                                     </label>
@@ -185,7 +185,7 @@
                         <div class="row d-flex flex-column">
                             <div class="col-md-5 lap-50 sm-100">
                                 <div class="radiofield fadeLeft">
-                                    <input type="radio" name="avgproduct">
+                                    <input type="radio" id="Verdadero" name="sponsor" value="Verdadero">
                                     <label class="formLabel">
                                        Verdadero
                                     </label>
@@ -193,7 +193,7 @@
                             </div>
                             <div class="col-md-5 lap-50 sm-100">
                                 <div class="radiofield fadeLeft delay-100ms">
-                                    <input type="radio" name="avgproduct">
+                                    <input type="radio" id="falso" name="sponsor" value="falso">
                                     <label class="formLabel">
                                         Falso
                                     </label>
@@ -223,7 +223,7 @@
                         <div class="row d-flex flex-column">
                             <div class="col-md-5 lap-50 sm-100">
                                 <div class="radiofield fadeLeft">
-                                    <input type="radio" name="avgproduct">
+                                    <input type="radio" id="2015" name="music_fav" value="lugar">
                                     <label class="formLabel">
                                        Lugar
                                     </label>
@@ -231,7 +231,7 @@
                             </div>
                             <div class="col-md-5 lap-50 sm-100">
                                 <div class="radiofield fadeLeft delay-100ms">
-                                    <input type="radio" name="avgproduct">
+                                    <input type="radio" id="2015" name="music_fav" value="hogar">
                                     <label class="formLabel">
                                         Hogar
                                     </label>
@@ -239,7 +239,7 @@
                             </div>
                             <div class="col-md-5 lap-50 sm-100">
                                 <div class="radiofield fadeLeft delay-100ms">
-                                    <input type="radio" name="avgproduct">
+                                    <input type="radio" id="2015" name="music_fav" value="espacio">
                                     <label class="formLabel">
                                         Espacio
                                     </label>
@@ -278,7 +278,7 @@
                         </div>
 
                     </fieldset>
-                    <button class="next" type="button" id="sub">
+                    <button class="next" type="submit" id="sub">
                         Enviar
                     </button>
                 </section>
@@ -339,5 +339,17 @@
 
     <!-- My JS -->
     <script src="js/custom.js"></script>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwDY5fjVZ_lVRxkOlpLYNQvoP2M1v_RV7oSISugl5P49IErIhai3tIkJGQhpUoC7XxN4g/exec'
+        const form = document.forms['submit-form']
+  
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
 
 </body></html>
