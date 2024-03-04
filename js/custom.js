@@ -9,6 +9,18 @@ const comentarios = $("#comentarios");
 const terminos = $("#terminos");
 
 
+
+// var nombreUsuarioInput = document.getElementById('insta');
+
+// nombreUsuarioInput.addEventListener('change', function() {
+//   var nombreUsuario = nombreUsuarioInput.value;
+//   // Tu código para procesar el nombre del usuario
+//   console.log('El nombre del usuario es:', nombreUsuario);
+
+//   document.cookie = `instauser=${nombreUsuario}; 365`
+// });
+
+
 function next() {
   divs.eq(now).hide();
   now = now + 1 < divs.length ? now + 1 : 0;
@@ -43,8 +55,35 @@ function radiovalidate(stepnumber) {
 $("#step0btn").on("click", function () {
     const longitud = nombre.val().length;
     const longitudInsta = instagram.val().length;
+
+  
     
-  if (nombre.val() === "" || instagram.val() === "") {
+
+  
+if (document.cookie.split('; ').find(row => row.startsWith('nombreUsuario='))){
+  let micookie = document.cookie.split('; ').find(row => row.startsWith('nombreUsuario=')).split('=')[1];
+  let nombreUsuarioInput = document.getElementById('insta').value;
+console.log(micookie, nombreUsuarioInput)
+
+  if (micookie === nombreUsuarioInput){
+
+    (function (el) {
+      setTimeout(function () {
+        el.children().remove(".reveal");
+      }, 3000);
+    })(
+      $("#error").append(
+        '<div class="reveal alert alert-danger">El usuario ya existe</div>'
+      )
+    );
+
+  }  else {
+    return
+  }
+
+
+} 
+else if (nombre.val() === "" || instagram.val() === "") {
     (function (el) {
       setTimeout(function () {
         el.children().remove(".reveal");
@@ -172,6 +211,11 @@ $("#sub").on("click", function (e) {
 
 // e.preventDefault();
 
+var nombreUsuario = document.getElementById('insta').value;
+  
+// Establece la cookie con el nombre del usuario
+document.cookie = "nombreUsuario=" + nombreUsuario;
+
   if (comentarios.val() === "" ) {
     (function (el) {
       setTimeout(function () {
@@ -274,5 +318,3 @@ $('input[type="checkbox"]').css({
     width: '20px',
     height: '20px'
   });
-
-
