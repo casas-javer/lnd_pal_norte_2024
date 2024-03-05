@@ -50,15 +50,18 @@ function radiovalidate(stepnumber) {
   checkedradio = checkradio.some(Boolean);
 }
 
-function getCookie(nombreCookie) {
-  var valorCookie = document.cookie.split('; ').find(row => row.startsWith(nombreCookie + '=')).split('=')[1];
-  return valorCookie;
+function obtenerValorCookie(nombreCookie) {
+  // Buscar la cookie por nombre
+  let cookie = document.cookie.match(new RegExp(`(^| )${nombreCookie}=([^;]+)`));
+
+  // Si la cookie existe, retornar su valor
+  if (cookie) {
+    return decodeURIComponent(cookie[2]);
+  }
+
+  // Si la cookie no existe, retornar null
+  return null;
 }
-
-var valorCookie = getCookie("nombreUsuario");
-
-console.log('El valor de la cookie micookie es:', valorCookie);
-
 
 
 
@@ -69,21 +72,20 @@ $("#step0btn").on("click", function (e) {
   const longitudInsta = instagram.val().length;
 
 
-let nombreUsuarioInput = document.getElementById("insta").value;
-console.log( nombreUsuarioInput);
+  const nombreUsuario = obtenerValorCookie("nombreUsuario");
+  var valoruser = document.getElementById("insta").value;
 
-     if (valorCookie === nombreUsuarioInput) {
-      (function (el) {
-        setTimeout(function () {
-          el.children().remove(".reveal");
-        }, 3000);
-      })(
-        $("#error").append(
-          '<div class="reveal alert alert-danger">El usuario ya existe</div>'
-        )
-      );
-    }
-
+  if (nombreUsuario && nombreUsuario === valoruser) {
+    (function (el) {
+      setTimeout(function () {
+        el.children().remove(".reveal");
+      }, 3000);
+    })(
+      $("#error").append(
+        '<div class="reveal alert alert-danger">El usuario ya existe</div>'
+      )
+    );
+  } 
 
    else if (nombre.val() === "" || instagram.val() === "") {
     (function (el) {
