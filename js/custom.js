@@ -259,12 +259,14 @@ $(document).ready(function () {
   // Selecciona el campo de texto
   const nombrekey = $("#nombre");
   const instakey = $("#insta");
+  const comentarioskey = $("#comentarios");
 
   // Función para evitar que se escriban más de 100 caracteres
   function limitarCaracteres() {
     // Obtiene la longitud del valor del campo de texto
     const longkey = nombrekey.val().length;
     const longkeyinsta = instakey.val().length;
+    const longkeycomentarios = comentarioskey.val().length;
 
     // Si la longkey es mayor a 100, elimina los caracteres sobrantes
     if (longkey > 70) {
@@ -273,6 +275,10 @@ $(document).ready(function () {
     if (longkeyinsta > 30) {
       instakey.val(instakey.val().substring(0, 30));
     }
+    if (longkeycomentarios > 500){
+      comentarioskey.val(comentarioskey.val().substring(0,500));
+    }
+
 
     //  VALIDACIÓN SOLO LETRAS
 
@@ -302,6 +308,7 @@ $(document).ready(function () {
   // Limita los caracteres al escribir en el campo de texto
   nombrekey.on("keyup", limitarCaracteres);
   instakey.on("keyup", limitarCaracteres);
+  comentarioskey.on("keyup", limitarCaracteres);
 });
 
 //   const regex = /^(?!.*\.{2})^([a-z\d_]{1,30})$/i;
