@@ -449,6 +449,7 @@ input[type="text"]:focus {
 textarea#comentarios {
     max-width: 100%;
     width: 100%;
+    outline: none;
 }
 
 
