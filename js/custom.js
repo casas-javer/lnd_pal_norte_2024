@@ -8,15 +8,16 @@ const instagram = $("#insta");
 const comentarios = $("#comentarios");
 const terminos = $("#terminos");
 
-// var nombreUsuarioInput = document.getElementById('insta');
-
-// nombreUsuarioInput.addEventListener('change', function() {
-//   var nombreUsuario = nombreUsuarioInput.value;
-//   // Tu código para procesar el nombre del usuario
-//   console.log('El nombre del usuario es:', nombreUsuario);
-
-//   document.cookie = `instauser=${nombreUsuario}; 365`
-// });
+$(document).on('keydown', function(event) {
+  // Check if the pressed key is Enter (keyCode 13)
+  if (event.keyCode === 13) {
+    // Prevent the default behavior of Enter key press
+    event.preventDefault();
+    
+    // Optionally, replace this with your desired behavior
+    console.log("Enter key pressed!");
+  }
+});
 
 function next() {
   divs.eq(now).hide();
@@ -294,3 +295,5 @@ $('input[type="checkbox"]').css({
   width: "20px",
   height: "20px",
 });
+
+
