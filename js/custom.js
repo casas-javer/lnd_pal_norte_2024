@@ -320,3 +320,19 @@ $('input[type="checkbox"]').css({
 });
 
 
+$(document).ready(function() {
+  const limiteCaracteres = 500; // Límite de caracteres
+  const caracteresEscritos = $('#caracteres-escritos');
+  const textarea = $('textarea'); // Selecciona el textarea en el que se escribe
+
+  // Actualizar el contador al escribir
+  textarea.on('keyup keydown change paste', function() {
+    const longitudActual = $(this).val().length;
+    caracteresEscritos.text(longitudActual + '/' + limiteCaracteres);
+  });
+
+  // Mostrar el valor inicial del contador
+  textarea.trigger('keyup'); // Simular un evento 'keyup' para actualizar el contador
+
+});
+
