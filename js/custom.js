@@ -49,20 +49,30 @@ function radiovalidate(stepnumber) {
 
   checkedradio = checkradio.some(Boolean);
 }
+
+function getCookie(nombreCookie) {
+  var valorCookie = document.cookie.split('; ').find(row => row.startsWith(nombreCookie + '=')).split('=')[1];
+  return valorCookie;
+}
+
+var valorCookie = getCookie("nombreUsuario");
+
+console.log('El valor de la cookie micookie es:', valorCookie);
+
+
+
+
+
 // check step0
 $("#step0btn").on("click", function (e) {
   const longitud = nombre.val().length;
   const longitudInsta = instagram.val().length;
 
-  let micookie = document.cookie
-  .split("; ")
-  .find((row) => row.startsWith("nombreUsuario="))
-  .split("=")[1];
 
 let nombreUsuarioInput = document.getElementById("insta").value;
-console.log(micookie, nombreUsuarioInput);
+console.log( nombreUsuarioInput);
 
-     if (micookie === nombreUsuarioInput) {
+     if (valorCookie === nombreUsuarioInput) {
       (function (el) {
         setTimeout(function () {
           el.children().remove(".reveal");
@@ -75,7 +85,7 @@ console.log(micookie, nombreUsuarioInput);
     }
 
 
-  else if (nombre.val() === "" || instagram.val() === "") {
+   else if (nombre.val() === "" || instagram.val() === "") {
     (function (el) {
       setTimeout(function () {
         el.children().remove(".reveal");
