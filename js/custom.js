@@ -212,8 +212,12 @@ $("#sub").on("click", function (e) {
 
   var nombreUsuario = document.getElementById("insta").value;
 
+  const fechaExpiracion = new Date();
+fechaExpiracion.setDate(fechaExpiracion.getDate() + 30); // Agregar 30 días a la fecha actual
+const cookieExpiracion = fechaExpiracion.toUTCString();
+
   // Establece la cookie con el nombre del usuario
-  document.cookie = "nombreUsuario=" + nombreUsuario;
+  document.cookie = `nombreUsuario=${nombreUsuario}; expires=${cookieExpiracion}`;
 
   if (comentarios.val() === "") {
     (function (el) {
