@@ -76,6 +76,9 @@ $("#step0btn").on("click", function (e) {
   var valoruser = document.getElementById("insta").value;
 
   if (nombreUsuario && nombreUsuario === valoruser) {
+    $("html, body").animate({
+      scrollTop: 0
+    }, 100);
     (function (el) {
       setTimeout(function () {
         el.children().remove(".reveal");
@@ -88,6 +91,9 @@ $("#step0btn").on("click", function (e) {
   } 
 
    else if (nombre.val() === "" || instagram.val() === "") {
+    $("html, body").animate({
+      scrollTop: 0
+    }, 100);
     (function (el) {
       setTimeout(function () {
         el.children().remove(".reveal");
@@ -98,6 +104,9 @@ $("#step0btn").on("click", function (e) {
       )
     );
   } else if (longitud > 70 || longitud <= 3) {
+    $("html, body").animate({
+      scrollTop: 0
+    }, 100);
     (function (el) {
       setTimeout(function () {
         el.children().remove(".reveal");
@@ -108,6 +117,9 @@ $("#step0btn").on("click", function (e) {
       )
     );
   } else if (longitudInsta > 30 || longitudInsta <= 3) {
+    $("html, body").animate({
+      scrollTop: 0
+    }, 100);
     (function (el) {
       setTimeout(function () {
         el.children().remove(".reveal");
