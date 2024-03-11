@@ -111,6 +111,18 @@ main {
   position: relative;
   /* height: 65px; */
 }
+
+h2.mainheading {color: #ffd800;}
+
+ol li  {
+    color: #ffd800;
+}
+
+li::marker{
+    color: white;
+    font-weight: 400
+}
+
 .mainheading::after {
   content: "";
   position: absolute;
