@@ -255,7 +255,7 @@ const cookieExpiracion = fechaExpiracion.toUTCString();
       }, 3000);
     })(
       $("#error").append(
-        '<div class="reveal alert alert-danger">Debes cumplir el mínimo de caracteres</div>'
+        '<div class="reveal alert alert-danger">Debes cumplir al menos 50 caracteres</div>'
       )
     );
   }
