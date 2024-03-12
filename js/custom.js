@@ -220,6 +220,8 @@ $("#step4btn").on("click", function () {
 
 // check last step
 $("#sub").on("click", function (e) {
+  // var condicionesCumplidas = false;
+  const longitudComent = comentarios.val().length;
   // e.preventDefault();
 
   var nombreUsuario = document.getElementById("insta").value;
@@ -232,6 +234,7 @@ const cookieExpiracion = fechaExpiracion.toUTCString();
   document.cookie = `nombreUsuario=${nombreUsuario}; expires=${cookieExpiracion}`;
 
   if (comentarios.val() === "") {
+    e.preventDefault();
     (function (el) {
       setTimeout(function () {
         el.children().remove(".reveal");
@@ -241,7 +244,24 @@ const cookieExpiracion = fechaExpiracion.toUTCString();
         '<div class="reveal alert alert-danger">Cuéntanos tu historia</div>'
       )
     );
-  } else if (!terminos.is(":checked")) {
+  } else if (longitudComent > 500 || longitudComent <= 50) {
+    e.preventDefault();
+    $("html, body").animate({
+      scrollTop: 0
+    }, 100);
+    (function (el) {
+      setTimeout(function () {
+        el.children().remove(".reveal");
+      }, 3000);
+    })(
+      $("#error").append(
+        '<div class="reveal alert alert-danger">Debes cumplir el mínimo de caracteres</div>'
+      )
+    );
+  }
+  
+  else if (!terminos.is(":checked")) {
+    e.preventDefault();
     (function (el) {
       setTimeout(function () {
         el.children().remove(".reveal");
@@ -252,6 +272,12 @@ const cookieExpiracion = fechaExpiracion.toUTCString();
       )
     );
   } else {
+
+    $('.show-section').submit(function() {
+      console.log("Se envio el formulario")
+      TikTokPixel.track('FormPalnorte2024');
+    });
+
     $(".surveyForm").addClass("d-none");
     $(".loading").addClass("d-grid");
     setTimeout(function () {
@@ -347,4 +373,3 @@ $(document).ready(function() {
   textarea.trigger('keyup'); // Simular un evento 'keyup' para actualizar el contador
 
 });
-
